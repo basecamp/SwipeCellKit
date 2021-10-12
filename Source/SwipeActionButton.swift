@@ -52,6 +52,7 @@ class SwipeActionButton: UIButton {
         titleLabel?.lineBreakMode = .byWordWrapping
         titleLabel?.numberOfLines = 1
         titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.9
         
         accessibilityLabel = action.accessibilityLabel
         
