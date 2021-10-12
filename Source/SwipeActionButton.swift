@@ -50,7 +50,8 @@ class SwipeActionButton: UIButton {
         titleLabel?.font = action.font ?? UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
         titleLabel?.textAlignment = .center
         titleLabel?.lineBreakMode = .byWordWrapping
-        titleLabel?.numberOfLines = 0
+        titleLabel?.numberOfLines = 1
+        titleLabel?.adjustsFontSizeToFitWidth = true
         
         accessibilityLabel = action.accessibilityLabel
         
