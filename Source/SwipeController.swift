@@ -153,8 +153,15 @@ class SwipeController: NSObject {
             
             swipeable.state = targetState(forVelocity: velocity)
             
-            if actionsView.expanded == true, let expandedAction = actionsView.expandableAction  {
-                perform(action: expandedAction)
+            guard actionsView.expandableAction?.handler != nil else {
+                UIView.animate(withDuration: 0.333) {
+                    self.resetSwipe()
+                } completion: { _ in }
+                return
+            }
+            
+            if actionsView.expanded == true, let expandedAction = actionsView.expandableAction {
+                    perform(action: expandedAction)
             } else {
                 let targetOffset = targetCenter(active: swipeable.state.isActive)
                 let distance = targetOffset - actionsContainerView.center.x
